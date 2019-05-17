@@ -47,7 +47,7 @@ public class Reader {
                 this.data[2],
                 this.data[3]
         );
-
+//        {"build":1547017060,"ip_version":1,"languages":{"CN":0},"node_count":411432,"total_size":3330322,"fields":["country_name","region_name","city_name"]}
         byte[] metaBytes = Arrays.copyOfRange(this.data, 4, Long.valueOf(metaLength).intValue() + 4);
 
         MetaData meta = JSONObject.parseObject(new String(metaBytes), MetaData.class);
@@ -116,7 +116,7 @@ public class Reader {
         }
 
         final String data = this.resolve(node);
-
+        //数据存储格式 language1 data  language2 data   language3  data
         return Arrays.copyOfRange(data.split("\t", this.meta.Fields.length * this.meta.Languages.size()), off, off+this.meta.Fields.length);
     }
 
@@ -135,7 +135,7 @@ public class Reader {
                 break;
             }
 
-            node = this.readNode(node, 1 & ((0xFF & binary[i / 8]) >> 7 - (i % 8)));
+            node = this.readNode(node, 1 & ((0xFF & binary[i / 8]) >> 7 - (i % 8))); //这里是 7 - (i%8)
         }
 
         if (node > this.nodeCount) {
@@ -172,7 +172,7 @@ public class Reader {
 
     private int readNode(int node, int index) {
         int off = node * 8 + index * 4;
-
+        //返回第
         return Long.valueOf(bytesToLong(
                 this.data[off],
                 this.data[off+1],

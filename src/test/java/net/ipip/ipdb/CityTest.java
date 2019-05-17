@@ -108,13 +108,13 @@ public class CityTest {
 
 
     private String test10000() throws IPFormatException, InvalidDatabaseException {
-        long t0 = System.currentTimeMillis();
-        int count = 10000;
-        for (int i = 0; i < count; i++) {
-            String randomIp = IpUtils.getRandomIp();
-            final String result = Arrays.toString(cityDb.find(randomIp, "CN"));
-        }
-        System.out.println("test10000() use time: TimeMillis: " + (System.currentTimeMillis() - t0));
+//        long t0 = System.currentTimeMillis();
+//        int count = 10000;
+//        for (int i = 0; i < count; i++) {
+//            String randomIp = IpUtils.getRandomIp();
+//            final String result = Arrays.toString(cityDb.find(randomIp, "CN"));
+//        }
+//        System.out.println("test10000() use time: TimeMillis: " + (System.currentTimeMillis() - t0));
         return "test10000";
     }
 }
